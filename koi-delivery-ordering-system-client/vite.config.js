@@ -1,15 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import svgr from 'vite-plugin-svgr';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    svgr(),
-  ],
+  plugins: [react(), svgr()],
+  base: "/react-deploy/",
   resolve: {
     alias: {
-      '@': '/src',
+      "@": "/src",
     },
   },
   server: {
@@ -19,5 +17,5 @@ export default defineConfig({
     host: true, // needed for the Docker Container port mapping to work
     strictPort: true,
     port: 5173, // you can replace this port with any port
-  }
+  },
 });
